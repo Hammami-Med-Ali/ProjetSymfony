@@ -1,39 +1,59 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Demande{% endblock %}
+<html>
+{% block title %}{% endblock %}
+{% block stylesheets %}
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        {% endblock %}
 
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        {% endblock %}
+        <body style="background-image: url('/images/markus.jpg')">
 {% block body %}
-    <h1>Demande</h1>
+    <h1><center>Demande</center></h1>
 
     <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ demande.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ demande.description }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ demande.type }}</td>
-            </tr>
-           
-            <tr>
-                <th>Date_d</th>
-                <td>{{ demande.dateD ? demande.dateD|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Date_f</th>
-                <td>{{ demande.dateF ? demande.dateF|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <thead>
+    <tr>
+    <th scope="col">ID</th>
+      <td scope="col">{{ demande.id }} </td>
+                                    </tr>
+    <tr>
+     <th scope="col">Description</th>
+      <td>{{ demande.description  }}</td>
+        </tr>   
+        <tr>
+     <th scope="col">Type</th>
+ <td>{{ demande.type  }}</td>      
+   </tr>  
+        <tr>
+     <th scope="col">Date_d</th>
+      <td>{{ demande.dateD ? demande.dateD|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>  
+        <tr>
+     <th scope="col">Date_f</th>
+      <td scope="col">{{ demande.dateF ? demande.dateF|date('Y-m-d H:i:s') : '' }} </td>
+        </tr>                               
+  </thead>
+  <tbody>
+  
+    <tr>
+      
+      <th scope="col">
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <a href="{{ path('demande_index') }}"><button type="submit" class="btn btn-warning" >Show List</button></center>
+   <center><a href ="{{ path('demande_edit', {'id': demande.id}) }}"><button type="submit" class="btn btn-success" >Update</button></center>
 
-    <a href="{{ path('demande_index') }}">back to list</a>
-
-    <a href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+</div>
+      </th>
+    </tr>
+    
+  </tbody>
+</table>
 
     {{ include('demande/_delete_form.html.twig') }}
+</body>
 {% endblock %}
+</html>

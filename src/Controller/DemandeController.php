@@ -68,6 +68,8 @@ class DemandeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Request Created! Knowledge is power!');
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('demande_index');

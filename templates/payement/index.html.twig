@@ -35,5 +35,4 @@
         {% endblock %}
 {% block body %}
 <h1>Acheter dans produit</h1>
-    <button id="checkout-button"  >Payer en ligne </button>
-{% endblock %}
+ <a href="{{ path('checkout') }}"><button type="submit" class="btn btn-warning" > PAYER</button></a>{% endblock %}

@@ -18,7 +18,7 @@ class PayementController extends AbstractController
         ]);
     }
      /**
-     * @Route("/create-checkout-session", name="checkout")
+     * @Route("/checkout", name="checkout")
      */
     public function checkout()
     {
@@ -38,7 +38,7 @@ class PayementController extends AbstractController
             ]],
             'mode' => 'payment',
             'success_url' =>'http://127.0.0.1:8000/success',
-            'cancel_url' =>  'http://127.0.0.1:8000/error',
+            'cancel_url' => 'http://127.0.0.1:8000/error',
           ]);
     }
 
